@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="pagina para crear preguntas">
+	<meta name="author" content="Kathia Rodríguez Aguilar">
+	<meta name="keywords" content="preguntas, crear, cuestionario " >
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/styles.css')}}">
+	<link href="https://fonts.googleapis.com/css?family=Darker+Grotesque|Lobster|Montserrat&display=swap" rel="stylesheet">
+	<link rel="shortcut icon"  type="image/png" href="{{ url_for('static', filename = 'img/logo.ico')}}">
+	<title>
+		
+		{% block titulo %}
+		{% endblock %}
+	</title>
+
+</head>
+
+	{% block cuerpo %}
+	{% endblock %}
+</html>

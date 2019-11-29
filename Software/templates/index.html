@@ -1,0 +1,61 @@
+{% extends 'plantilla.html' %}
+
+{% block titulo %}
+
+	Inicio
+{% endblock %}
+
+{% block cuerpo %}
+<body>
+	<header class="titulo">
+		<h1 class="texto-centrado">Preguntas</h1>
+	</header>
+	
+
+	<section class="lista-preguntas">
+	
+		{% for preguntaId in infoPreguntas %}
+		<div class="pregunta">
+			
+			<div class="input-text-fucsiaInvertido">
+				<input type="text" value="{{preguntaId[0]}}" readonly="" class="texto-centrado">		
+			</div>
+			
+			<div class="boton-fucsia">
+				<a href="{{ '/verPregunta/' + preguntaId[1]}}">
+					<input type="button" value="Ver">		
+				</a>
+			</div>
+
+			<div class="boton-fucsia">
+				<a href="{{ '/editarPregunta/' + preguntaId[1]}}">
+					
+					<input type="button" value="Editar">		
+				</a>
+			</div>
+
+			<div class="boton-fucsia">
+				<a href="{{ '/eliminar/' + preguntaId[1] }}">
+					<input type="button" value="Eliminar">		
+				</a>
+			</div>
+
+		</div>
+	
+		{% endfor %}
+	</section>
+
+	<footer class="boton-flotante-bajo">
+		<div class="boton-azul texto-centrado">
+			<a href="{{ url_for('creacionPregunta')}}">
+				<input type="button" value="Agregar pregunta">		
+			</a>
+		</div>
+	</footer>
+
+
+	<!--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus saepe incidunt est aliquam, harum excepturi architecto vero nostrum. Qui pariatur, aperiam reiciendis necessitatibus reprehenderit voluptatem laborum unde quisquam ea quis.-->
+
+</body>
+
+{% endblock %}

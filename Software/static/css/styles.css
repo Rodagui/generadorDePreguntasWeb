@@ -1,0 +1,307 @@
+/* 	font-family: 'Lobster', cursive;
+	font-family: 'Montserrat', sans-serif;
+	font-family: 'Darker Grotesque', sans-serif;
+*/
+
+:root{
+	--azul: #115AA6;
+	--fucsia: #9E002B;
+	--fucsiaClaro: #D82C5B;
+	--azulClaro: #257FDC;
+	--gris: #8E8E91;
+	--grisFuerte: #565656;
+	--naranjaClaro: #9E002B;
+	--grisClaro: #768692;
+	--verde: #00B991;
+	--verdeFuerte: #0091B1;
+}
+
+/*----------------------- Etiquetas ----------------------- */
+*{
+	box-sizing: border-box;
+}
+
+html{
+	font-family: 'Darker Grotesque', sans-serif;
+	font-size: 25px;
+	font-weight: bolder;
+
+}
+
+body{
+
+	background-image:  url(../img/copia.jpg);
+	background-size: 100vw 100vh;
+	margin-left: 3rem;
+	margin-right: 3rem;
+	margin-top: 2rem;
+
+}
+
+input{
+	outline: none;
+	border: none;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 0.9rem;
+	border-radius: 8px;
+	padding-top: 0.2rem;
+	padding-bottom: 0.2rem;
+	opacity: 0.9;
+}
+
+input[type = "button"], input[type="submit"] {
+	text-align: center;
+	cursor: pointer;
+}
+
+input[type="button"]:active{
+	transform: scale(0.8);
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in-out;
+}
+
+/* ----------------------- Componentes -----------------------*/
+
+
+
+/*Componente titulo*/
+.titulo h1{
+	font-size: 2.3rem; 
+	font-family: 'Lobster', cursive;
+	color: var(--naranjaClaro);
+	opacity: 0.9;
+	/*x y dif*/
+	text-shadow:  3px 4px 0 white;
+
+}
+
+/*componente input azul invertido*/
+
+.input-text-fucsiaInvertido input{
+	
+	/*border-style: solid;*/
+
+	/*border-color: var(--fucsia);*/
+	/* color: white;
+	background-color: var(--fucsia);
+	 */
+	color: white;
+	background-color: var(--verde);
+	font-weight: bolder;
+}
+
+
+.input-text-fucsiaInvertido input::placeholder{
+	color: white;
+	font-weight: bolder;
+
+}
+
+
+
+/*Componente botón fucsia*/
+.boton-fucsia input{
+	background-color: var(--fucsia);
+	/*letras placehorlder:*/
+	color: white;
+	font-weight: bolder;	
+}
+
+.boton-fucsia input:hover{
+	background-color: var(--fucsiaClaro);
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in-out;
+	
+}
+
+/*Componente boton azul*/
+.boton-azul input{
+	background-color: var(--azul);
+	color: white;
+}
+
+.boton-azul input:hover{
+	background-color: var(--azulClaro);
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in-out;
+	
+}
+
+/*componente pregunta*/
+.pregunta {
+	margin-bottom: 1rem;
+	display: grid;
+	/*grid-template-columns: repeat(4, 1fr); es lo mismo que:*/
+	grid-template-columns: 8fr 1fr 1fr 1fr;
+	gap: 1rem;
+}
+
+.pregunta .input-text-fucsiaInvertido input{
+	width: 95%;
+}
+
+.pregunta .boton-fucsia input{
+	width: 100%;
+}
+
+/*Componente boton flotante*/
+.boton-flotante-bajo{
+
+	position: fixed;
+	left: 3rem;
+	right: 3rem;
+	bottom: 1rem;
+	margin-bottom: 0;
+}
+
+.boton-flotante-bajo input{
+	width: 80%;
+	height: 2rem;
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+.lista-preguntas{
+	margin-bottom: 4rem;
+}
+
+/*Componente input texto fucsia*/
+.input-text-fucsia input{
+	background-color: var(--fucsia);
+	color: white;
+}
+
+.input-text-fucsia input::placeholder{
+	color: white;
+}
+
+/**componente input radio fucsia*/
+
+.input-radio-fucsia input{
+	display: none;
+}
+
+.input-radio-fucsia input + label {
+	font-weight: bolder;
+	font-size: 1.5rem;
+	color: var(--fucsia);
+	
+}
+
+.input-radio-fucsia input + label .figura{
+	width: .8rem;
+	height: .8rem;
+	vertical-align: center;
+	border-style: solid;
+	border-color: var(--fucsia);
+	display: inline-block;
+	border-radius: 50%;
+	cursor: pointer;
+	margin: -1px 4px 0 0;
+
+
+}
+
+.input-radio-fucsia input:active + label .figura{
+	transform: scale(0.8);
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in-out;
+}
+
+
+.input-radio-fucsia input:checked + label .figura{
+	background-color: var(--fucsia);
+	transform: scale(1.2);
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in-out;
+}
+
+/*Componente tipo opciones*/
+
+.tipo-opciones{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+/*Componente formulario-creacion pregunta*/
+
+#formulario-creacion {
+	margin-bottom: 5rem;
+}
+#formulario-creacion > *{
+
+	margin-bottom: 1rem;
+}
+
+#nombre-pregunta, #pregunta{
+	width: 100%;
+}
+
+/*Componente del botón*/
+
+.boton-eliminar-opcion input{
+	border-radius: 50%;
+	width: 1.5rem;
+	height: 1.5rem;
+	background-color: var(--gris);
+	color: white;
+	font-weight: bold;
+}
+
+.opcion-texto{
+	display: grid;
+	grid-template-columns: 7fr 3fr 1fr;
+	gap: 1rem;
+	margin-bottom: 1rem;
+}
+
+.opcion-texto input[type="text"]{
+	width: 100%;
+}
+
+.opcion-texto .boton-eliminar-opcion{
+	text-align: right;
+}
+
+.opcion-texto .boton-eliminar-opcion input:hover{
+	background-color: var(--grisFuerte);
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in-out;
+	
+}
+
+/*Componente agregar opcion*/
+
+.boton-agregar-opcion input{
+	width: 60%;
+}
+
+/*Componente opcion multimedia*/
+
+.opcion-multimedia img, video{
+	cursor: pointer;
+	width: 50%;
+}
+
+.opcion-multimedia video{
+	width: 100%;
+}
+
+/*Componente opciones multimedia*/
+
+.opciones-multimedia{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	gap: 1rem;
+	align-items: center;
+}
+
+/*----------------------- Utilidades -----------------------*/
+
+.texto-centrado{
+	text-align: center;
+}
+
+.invisible{
+	display: none;
+}

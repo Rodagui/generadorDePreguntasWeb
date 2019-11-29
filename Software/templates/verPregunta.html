@@ -1,0 +1,99 @@
+{% extends 'plantilla.html' %}
+
+{% block titulo %}
+	Pregunta
+{% endblock %}
+
+{% block cuerpo %}
+
+<body>
+	
+		<div id="formulario-creacion">
+			
+			<div class="input-text-fucsia texto-centrado">
+				<input type="text" value = "{{nombre}}" name = "nombre" readonly id="nombre-pregunta" class="texto-centrado">		
+			</div>
+
+
+			<div class="input-text-fucsiaInvertido texto-centrado">
+				<input type="text" value = "{{pregunta}}" name="pregunta" readonly class="texto-centrado" id="pregunta">
+			</div>
+
+			{%  if tipo == 'texto': %}
+
+			<div class="opciones-texto">
+
+				{% for opcion in opciones: %}
+
+				<div class="opcion-texto">
+					
+					<div class="input-text-fucsiaInvertido">
+						<input name="opcion-texto" type="text" value="{{opcion}}" readonly >
+					</div>
+
+					<div class="input-radio-fucsia">
+						
+						{% if opcion == opcionCorrecta: %}
+							<input type="radio" name="opcion-correcta-texto" checked="">
+						{% else: %}
+							<input type="radio" name="opcion-correcta-texto">
+						{% endif %}
+
+						<label ><span class="figura"> </span>Opción correcta</label>
+
+					</div>
+
+					
+				</div>
+
+				{% endfor %}
+
+			</div>
+
+			{% else: %}
+
+						
+			<div class="opciones-multimedia">
+				{% for opcion in opciones %}
+					<div class="opcion-multimedia texto-centrado">
+					
+					
+					{% if opcion.split('.')[-1] == 'png' or opcion.split('.')[-1] == 'jpg' or opcion.split('.')[-1] == 'gif' %}
+						<img src="../static/preguntas/{{opcion}}" alt="">
+					{% elif opcion.split('.')[-1] == 'mp3' %}
+						<img src="../static/img/audio.png" alt="">
+						<audio src="../static/preguntas/{{opcion}}" controls></audio>
+					{% else %}
+
+						<video src="../static/preguntas/{{opcion}}"></video>
+
+					{% endif %}
+
+					<div class="input-radio-fucsia">
+						{% if opcion == opcionCorrecta: %}
+							<input type="radio" name="opcion-correcta-multimedia" checked>
+						{% else: %}
+							<input type="radio" name="opcion-correcta-multimedia">
+						{% endif %}
+						<label><span class="figura"> </span>Opción correcta</label>
+
+					</div>
+
+					</div>
+				{% endfor %}
+			</div>
+
+			{% endif %}
+
+			<div class="boton-flotante-bajo">
+				<div class="boton-azul texto-centrado">
+					<a href="/">
+						<input type="button" value="Inicio">		
+					</a>
+				</div>
+			</div>
+
+		</div>
+</body>
+
+{% endblock %}
